@@ -1,12 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import MyComponent from "./firstcomponent";
+import LocationComponent from "./secondComponent";
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+var divBlock = document.getElementById('container')
+
+ReactDOM.render(
+    <div>
+       <MyComponent fname="Prafful" lname="Daga" location="Singapore">13</MyComponent>
+       <br></br><br></br>
+       <MyComponent fname="Okie" lname="San" location="Tokyo">8</MyComponent>
+       <br></br><br></br>
+       <MyComponent fname="Mike" lname="Keith" location="Iceland">17</MyComponent>
+    
+    </div>
+    ,
+    divBlock)
