@@ -5,7 +5,7 @@ class Experience extends React.Component {
     render() { 
         return ( 
             <span>
-                Experience : {this.props.exp}
+                Experience : {this.props.work}
             </span>
          );
     }

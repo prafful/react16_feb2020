@@ -1,6 +1,7 @@
 import React from 'react';
 import LocationComponent from './secondComponent';
 import Experience from './workexperience';
+import Salary from './salary';
 
 class MyComponent extends React.Component {
     name1 = "Prafful Daga"
@@ -12,7 +13,9 @@ class MyComponent extends React.Component {
                 <div><b>Hello {this.props.fname} {this.props.lname}!</b></div>
                 <LocationComponent>{this.props.location}</LocationComponent>
                 <br></br>
-                <Experience exp = {this.props.children}></Experience>
+                <Experience work = {this.props.children}></Experience>
+                <br></br>
+                <Salary>{this.props.sal}</Salary>
             </span>
         )
     }

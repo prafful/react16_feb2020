@@ -8,11 +8,23 @@ var divBlock = document.getElementById('container')
 
 ReactDOM.render(
     <div>
-       <MyComponent fname="Prafful" lname="Daga" location="Singapore">13</MyComponent>
+       <MyComponent 
+            fname="Prafful" 
+            lname="Daga" 
+            location="Singapore" 
+            sal="22">13</MyComponent>
        <br></br><br></br>
-       <MyComponent fname="Okie" lname="San" location="Tokyo">8</MyComponent>
+       <MyComponent 
+            fname="Okie" 
+            lname="San" 
+            location="Tokyo"
+            sal="44">8</MyComponent>
        <br></br><br></br>
-       <MyComponent fname="Mike" lname="Keith" location="Iceland">17</MyComponent>
+       <MyComponent 
+            fname="Mike" 
+            lname="Keith" 
+            location="Iceland"
+            sal="88">17</MyComponent>
     
     </div>
     ,
