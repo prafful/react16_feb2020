@@ -1,8 +1,9 @@
 import React from 'react';
 
 class Rainbow extends React.Component {
-    state = {  }
-    render() { 
+    
+
+render() { 
         let rainStyle = {
             color: this.props.color,
             borderBottom: '2px solid red',

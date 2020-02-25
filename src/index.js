@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import MyComponent from "./firstcomponent";
-import LocationComponent from "./secondComponent";
 import Rainbow from "./rainbow/rainbow";
+import MyLifecycle from "./lifecycle/component_lifecycle";
+import RemoteData from "./remote/remote";
 
 
 var divBlock = document.getElementById('container')
@@ -49,4 +50,13 @@ ReactDOM.render(<div>
                     <Rainbow color="red"></Rainbow>
                </div>
      , rainBlock)
+
+ ReactDOM.render(   <span>
+                        <MyLifecycle></MyLifecycle>
+                    </span>,
+                      document.getElementById('lifecycle')   )    
+
+ReactDOM.render(
+     <RemoteData></RemoteData>, document.getElementById('remote')
+)                      
 
