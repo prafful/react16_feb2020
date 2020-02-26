@@ -54,6 +54,11 @@
       "todo_text": "adasdasd",
       "status": "new",
       "id": 12
+    },
+    {
+      "todo_text": "",
+      "status": "new",
+      "id": 13
     }
   ],
   "todo_detail": []

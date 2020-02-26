@@ -50,22 +50,25 @@ class AllTodo extends React.Component {
         console.log("Adding new todo item from text field!");
         //"todo_text": "Plan a trip to pichavaram!",
         //"status": "done"
-        var newtodo = {
-            "todo_text":this.state.newtodovalue,
-            "status":"new"
+        if (!this.state.newtodovalue == ''){
+            var newtodo = {
+                "todo_text":this.state.newtodovalue,
+                "status":"new"
+            }
+            //post newtodo to axois.post
+            axios.post("http://localhost:3000/alltodo/", newtodo)
+                            .then(res=>{
+                                console.log(res);  
+                                //update the state=> this.state.todos so that
+                                //it will auto re-execute the render function
+                                this.getAllTodos()  
+                                //set newtodovalue state to '' after adding new todo!
+                                this.setState({newtodovalue: ''})                       
+                            }, err=>{
+                                console.log(err);
+                            })
         }
-        //post newtodo to axois.post
-        axios.post("http://localhost:3000/alltodo/", newtodo)
-                        .then(res=>{
-                            console.log(res);  
-                            //update the state=> this.state.todos so that
-                            //it will auto re-execute the render function
-                            this.getAllTodos()  
-                            //set newtodovalue state to '' after adding new todo!
-                            this.setState({newtodovalue: ''})                       
-                        }, err=>{
-                            console.log(err);
-                        })
+       
     }
     
     getNewTodo= function(event){
