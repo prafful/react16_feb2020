@@ -75,7 +75,7 @@ class RemoteData extends React.Component {
                         <th>Name</th>
                         <th>City</th>
                         <th>Company</th>
-                        <th colspan="2">Actions</th>
+                        <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

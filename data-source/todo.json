@@ -1,0 +1,60 @@
+{
+  "alltodo": [
+    {
+      "id": 1,
+      "todo_text": "Plan a trip to pichavaram!",
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "todo_text": "Plan trip of local train!!!!",
+      "status": "not done"
+    },
+    {
+      "todo_text": "Get badam lassi from Soukarpet, Chennai!",
+      "status": "not done",
+      "id": 3
+    },
+    {
+      "todo_text": "Bring team on track and on good pace at remote location!",
+      "status": "not done",
+      "id": 5
+    },
+    {
+      "todo_text": "Do POST with React for REST API!",
+      "status": "new",
+      "id": 6
+    },
+    {
+      "todo_text": "Do PUT with React for REST API!",
+      "status": "new",
+      "id": 7
+    },
+    {
+      "todo_text": "Do PUT with React for REST API!",
+      "status": "new",
+      "id": 8
+    },
+    {
+      "todo_text": "Do PUT with React for REST API!",
+      "status": "new",
+      "id": 9
+    },
+    {
+      "todo_text": "Do PUT with React for REST API!",
+      "status": "new",
+      "id": 10
+    },
+    {
+      "todo_text": "Check it again!",
+      "status": "new",
+      "id": 11
+    },
+    {
+      "todo_text": "adasdasd",
+      "status": "new",
+      "id": 12
+    }
+  ],
+  "todo_detail": []
+}

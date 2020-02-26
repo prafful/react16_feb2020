@@ -4,6 +4,7 @@ import MyComponent from "./firstcomponent";
 import Rainbow from "./rainbow/rainbow";
 import MyLifecycle from "./lifecycle/component_lifecycle";
 import RemoteData from "./remote/remote";
+import AllTodo from "./todo/alltodo";
 
 
 var divBlock = document.getElementById('container')
@@ -57,6 +58,11 @@ ReactDOM.render(<div>
                       document.getElementById('lifecycle')   )    
 
 ReactDOM.render(
-     <RemoteData></RemoteData>, document.getElementById('remote')
+     <span>
+     <AllTodo></AllTodo>
+     <hr></hr>
+     <RemoteData></RemoteData>
+     
+     </span>, document.getElementById('remote')
 )                      
 
