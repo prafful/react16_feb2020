@@ -7,11 +7,12 @@ class RemoteData extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            users: []
+            users: [],
+            singleuser:''
         }
-       // this.getRemoteData = this.getRemoteData.bind(this)
-
+        this.success = this.success.bind(this)
     }
+
 
     componentWillMount(){
         this.getRemoteData()
@@ -19,52 +20,42 @@ class RemoteData extends React.Component {
     
     getRemoteData(){
         axios.get("https://jsonplaceholder.typicode.com/users")
-                    .then((res)=>{
-                        console.log(res.data);
-                        this.setState({users: res.data})
-                        console.log(this.state.users);
-                    }, (err)=>{
-                        console.log(err);    
-                    })
+            .then(this.success, this.failure)
     }
 
-/*
-    test = function(){
-        console.log("test");
+    success = function(res){
+        console.log(res);
+        console.log(res.data);
+        this.setState({users: res.data})
+        console.log(this.state.users);
+        console.log(this.state.users[0].name);
+        this.setState({singleuser: this.state.users[0].name})
     }
 
-    test1 = ()=>{
-        console.log("test 1");
+    failure = function(error){
+        console.log(error);
     }
-     successFun = function(response){
-        console.log("API Call Success!")
-        console.log(response.data);
-    }
-
-    failureFun = function() {
-        console.log("API Call Fail")
-        
-    }     */
-
 
     displayAllUsers = function(){
-       return this.state.users.map((u)=>{
-            return (
-                <UserData 
-                    key={u.id}
-                    name={u.name}
-                    >
-                </UserData>
-            ) 
-        })
+        return this.state.users.map(this.callMeForEachElement)
     }
+
+    callMeForEachElement = function(user){
+        console.log(user.name);
+        return (<UserData
+                    key={user.id}
+                    name={user.name}
+                    city={user.address.city}
+                    company={user.company.name}
+                ></UserData>)
+    }
+
 
     render() { 
         return ( 
             <div>
                 Data from REST API will be loaded here!
-               {this.displayAllUsers()}
-
+                {this.displayAllUsers()}
             </div>
          );
     }
