@@ -6,18 +6,18 @@
       "status": "done"
     },
     {
-      "id": 2,
-      "todo_text": "Plan trip of local train!!!!",
-      "status": "not done"
+      "todo_text": "Plan a local subway train trip!",
+      "status": "planned",
+      "id": 2
     },
     {
-      "todo_text": "Get badam lassi from Soukarpet, Chennai!",
-      "status": "not done",
+      "todo_text": "Get lassi from Soukarpet, Chennai!",
+      "status": "planned",
       "id": 3
     },
     {
       "todo_text": "Bring team on track and on good pace at remote location!",
-      "status": "not done",
+      "status": "done",
       "id": 5
     },
     {
@@ -26,39 +26,9 @@
       "id": 6
     },
     {
-      "todo_text": "Do PUT with React for REST API!",
+      "todo_text": "Do EDIT with react and axios",
       "status": "new",
       "id": 7
-    },
-    {
-      "todo_text": "Do PUT with React for REST API!",
-      "status": "new",
-      "id": 8
-    },
-    {
-      "todo_text": "Do PUT with React for REST API!",
-      "status": "new",
-      "id": 9
-    },
-    {
-      "todo_text": "Do PUT with React for REST API!",
-      "status": "new",
-      "id": 10
-    },
-    {
-      "todo_text": "Check it again!",
-      "status": "new",
-      "id": 11
-    },
-    {
-      "todo_text": "adasdasd",
-      "status": "new",
-      "id": 12
-    },
-    {
-      "todo_text": "",
-      "status": "new",
-      "id": 13
     }
   ],
   "todo_detail": []

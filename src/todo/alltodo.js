@@ -8,10 +8,19 @@ class AllTodo extends React.Component {
         super(props)
         this.state = {
             todos:[],
-            newtodovalue:""
+            newtodovalue:"",
+            edittodovalue:"",
+            editstatus:"",
+            edittodoid:0
         }
         this.getNewTodo = this.getNewTodo.bind(this)
         this.addTodo = this.addTodo.bind(this)
+        this.deleteTodoById = this.deleteTodoById.bind(this)
+        this.editTodoById = this.editTodoById.bind(this)
+        this.editTodoText = this.editTodoText.bind(this)
+        this.editTodoStatus = this.editTodoStatus.bind(this)
+        this.updateTodoItem = this.updateTodoItem.bind(this)
+
     }
 
 
@@ -31,6 +40,35 @@ class AllTodo extends React.Component {
 
     }
 
+    deleteTodoById = function(receivedId){
+        console.log("Delete Todo By Id! " + receivedId);
+        axios.delete("http://localhost:3000/alltodo/" + receivedId)
+                .then(res=>{
+                    console.log(res);
+                    this.getAllTodos()
+                }, err=>{
+                    console.log(err);
+                })
+    }
+
+    editTodoById = function(receivedId){
+        console.log("Inside Edit Todo By Id! " + receivedId);
+        //edittodovalue:"",
+        //editstatus:""
+        //use axios to get the todo item with specifc id
+        axios.get('http://localhost:3000/alltodo/' + receivedId)
+            .then(response => {
+                console.log(response);
+                this.setState({edittodovalue: response.data.todo_text})
+                this.setState({editstatus: response.data.status})
+                this.setState({edittodoid: response.data.id})
+            }, error =>{
+                console.log(error);
+            })
+        //this.setState({edittodovalue: this.state.todos[receivedId].todo_text})
+        //this.setState({editstatus: this.state.todos[receivedId].status})
+    }
+
     renderAllTodos = function(){
         return this.state.todos.map( item =>{
             console.log(item);
@@ -39,6 +77,8 @@ class AllTodo extends React.Component {
                         id={item.id}
                         todotext={item.todo_text}
                         status = {item.status}
+                        deleteMe = {this.deleteTodoById}
+                        editMe= {this.editTodoById}
                     >
                     </TodoItem>
         })
@@ -77,6 +117,32 @@ class AllTodo extends React.Component {
 
     }
 
+    editTodoText = function(event){
+        console.log(event.target.value);
+        this.setState({edittodovalue: event.target.value})
+    }
+
+    editTodoStatus = function(event){
+        console.log(event.target.value);
+        this.setState({editstatus: event.target.value})
+    }
+
+    updateTodoItem = function(){
+        var updatedTodo = {
+            "todo_text": this.state.edittodovalue,
+            "status": this.state.editstatus
+        } 
+        console.log(updatedTodo);
+        axios.put('http://localhost:3000/alltodo/' 
+                    + this.state.edittodoid, updatedTodo)
+            .then(response =>{
+                console.log(response);
+                this.getAllTodos()
+            }, error=>{
+                console.log(error);
+            })
+    }
+
     render() { 
         return ( 
             <div>
@@ -88,6 +154,27 @@ class AllTodo extends React.Component {
                     &nbsp;
                     <button onClick={this.addTodo}>Add</button>
                 </fieldset>    
+                <br></br>
+                Update Todo:
+                <fieldset>
+                    <legend>Edit</legend>
+                    <label>Id: </label>
+                    <input type="text" 
+                           value={this.state.edittodoid} 
+                           readOnly />
+                           <br></br>
+                    <label>Todo:</label>
+                    <input type="text" 
+                           value={this.state.edittodovalue} 
+                           onChange={this.editTodoText} />
+                    <br></br>
+                    <label>Status:</label>
+                    <input type="text" 
+                           value={this.state.editstatus} 
+                           onChange={this.editTodoStatus} />
+                    &nbsp;
+                    <button onClick={this.updateTodoItem}>Update</button>
+                </fieldset>
                 <br></br>
                 <br></br>
                 <table border='1'>

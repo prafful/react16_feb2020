@@ -1,7 +1,23 @@
 import React from 'react';
 
 class TodoItem extends React.Component {
-    state = {  }
+    constructor(props){
+        super(props)
+
+        this.deleteTodoEvent = this.deleteTodoEvent.bind(this)
+        this.editTodoEvent = this.editTodoEvent.bind(this)
+    }
+
+    deleteTodoEvent = function(){
+        console.log("Delete function called! for "  + this.props.id );
+        this.props.deleteMe(this.props.id)
+    }
+
+    editTodoEvent = function(){
+        console.log("Edit todo! " + this.props.id);
+        this.props.editMe(this.props.id)
+    }
+
     render() { 
         return (
             <tr>
@@ -9,10 +25,10 @@ class TodoItem extends React.Component {
                 <td> {this.props.todotext}</td>
                 <td>{this.props.status}</td>
                 <td>
-                    <button>Edit</button>
+                    <button onClick={this.editTodoEvent}>Edit</button>
                 </td>
                 <td>
-                    <button>Delete</button>
+                    <button onClick={this.deleteTodoEvent}>Delete</button>
                 </td>
             </tr>
           );
